@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html, body {
+    height: 100%;
+}
+
+	body#login {
+		background: linear-gradient(12deg, rgba(0,128,0,1) 0%, rgba(50,205,50,1) 39%, rgba(255,255,255,1) 61%, rgba(50,205,50,1) 86%, rgba(0,128,0,1) 100%);
+	}
+
+.card {
+    border-radius: 15px;
+}
+
+#inputField {
+    background-color: #F3F3F3;
+    color: black;
+    border: 0;
+    font-family: 'Arial';
+    font-size: 12pt;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+#inputField::-webkit-input-placeholder {
+    color: #ACACAC;
+}
+
+#loginBtn {
+    background-color: deepskyblue;
+    border-radius: 250px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 50px;
+}
+
+#regBtn {
+	background-color: darkred;
+	border-radius: 250px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	padding: 10px 50px;
+}
+
+footer {
+    font-size: 12pt;
+    text-align: center;
+    color: rgb(173, 173, 173);
+}
