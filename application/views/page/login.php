@@ -16,7 +16,7 @@
 			<div class="card mx-auto my-auto col-10 col-md-6 col-lg-4 col-xl-4 shadow" style="height: 30rem;">
 				<div class="card-body">
 					<div class="row justify-content-center mt-4">
-						<img class="img-fluid" src="" alt="Logo" width="120px;">
+						<img class="img-fluid" src="<?php echo base_url('/assets/Logotes.jpg'); ?>" alt="Logo" width="180px;">
 					</div>
 					<div class="row justify-content-center" style="margin-top: 3rem;">
 						<form id="loginForm" action="Main/data">
@@ -30,7 +30,7 @@
 							<div class="form-group text-center">
 								<button id="loginBtn" name="login" type="submit" class="btn">Login</button>
 								<a href="<?php echo base_url('index.php/Home/register'); ?>">
-									<input id="regBtn" type="button" value="Register" class="btn btn-danger"></input>
+									<input id="regBtn" type="button" value="Register" class="btn"></input>
 								</a>
 							</div>
 

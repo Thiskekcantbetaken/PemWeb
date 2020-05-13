@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Latus</title>
+    <title>FaShop</title>
 	<link rel="stylesheet" href="<?php echo base_url('/assets/bootstrap-4.4.1-dist/css/bootstrap.min.css'); ?>">
 	<link rel="stylesheet" href="<?php echo base_url('/assets/css/register.css?ver=1.0.0'); ?>">
 	<script src="<?php echo base_url('/assets/jquery-3.4.1.js'); ?>"></script>

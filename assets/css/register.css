@@ -20,7 +20,7 @@
 
 body#register {
 	background-size: cover;
-	background: linear-gradient(12deg, rgba(0,128,0,1) 0%, rgba(50,205,50,1) 39%, rgba(255,255,255,1) 61%, rgba(50,205,50,1) 86%, rgba(0,128,0,1) 100%);
+	background: linear-gradient(12deg, rgba(0,191,255,1) 0%, rgba(135,206,250,1) 39%, rgba(255,255,255,1) 61%, rgba(135,206,250,1) 86%, rgba(0,191,255,1) 100%);
 }
 
 .card {
@@ -74,11 +74,11 @@ input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-clear-button { display: none; }
 
 #registerBtn {
-    background-color: #7E6BC4;
-    border-radius: 250px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    padding: 10px 80px;
+	background-color: darkorange;
+	border-radius: 250px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	padding: 10px 80px;
 }
 
 #loginForm label {

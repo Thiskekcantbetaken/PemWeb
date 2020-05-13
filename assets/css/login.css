@@ -6,7 +6,7 @@ html, body {
 }
 
 	body#login {
-		background: linear-gradient(12deg, rgba(0,128,0,1) 0%, rgba(50,205,50,1) 39%, rgba(255,255,255,1) 61%, rgba(50,205,50,1) 86%, rgba(0,128,0,1) 100%);
+		background: linear-gradient(12deg, rgba(0,191,255,1) 0%, rgba(135,206,250,1) 39%, rgba(255,255,255,1) 61%, rgba(135,206,250,1) 86%, rgba(0,191,255,1) 100%);
 	}
 
 .card {
@@ -28,7 +28,7 @@ html, body {
 }
 
 #loginBtn {
-    background-color: deepskyblue;
+    background-color: darkorange;
     border-radius: 250px;
     color: white;
     font-family: 'Roboto', sans-serif;
@@ -36,7 +36,7 @@ html, body {
 }
 
 #regBtn {
-	background-color: darkred;
+	background-color: mediumblue;
 	border-radius: 250px;
 	color: white;
 	font-family: 'Roboto', sans-serif;
