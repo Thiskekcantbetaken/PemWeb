@@ -17,6 +17,15 @@ class Home extends CI_Controller {
 
 		$this->load->view('page/login.php',$data);
 	}
+	
+	public function login()
+	{
+	
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+
+		$this->load->view('page/mainpage.php',$data);
+	}
 
 	public function register()
 	{
