@@ -16,7 +16,7 @@
 			<div class="card mx-auto my-auto col-10 col-md-6 col-lg-4 col-xl-4 shadow" style="height: 30rem;">
 				<div class="card-body">
 					<div class="row justify-content-center mt-4">
-						<img class="img-fluid" src="<?php echo base_url('/assets/Logotes.jpg'); ?>" alt="Logo" width="180px;">
+						<img class="img-fluid" src="<?php echo base_url('/assets/gambar/Logotes.jpg'); ?>" alt="Logo" width="180px;">
 					</div>
 					<div class="row justify-content-center" style="margin-top: 3rem;">
 						<form id="loginForm" action="Main/data">
