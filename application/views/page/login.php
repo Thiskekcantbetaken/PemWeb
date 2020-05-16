@@ -21,10 +21,10 @@
 					<div class="row justify-content-center" style="margin-top: 3rem;">
 						<form id="" action="index.php/Home/login">
 							<div class="form-group">
-								<input id="inputField" type="text" class="form-control" placeholder="Username" maxlength="">
+								<input  id="inputField" type="text" class="form-control" placeholder="Username" maxlength="">
 							</div>
 							<div class="form-group">
-								<input id="inputField" type="password" class="form-control" placeholder="Password" maxlength="">
+								<input  id="inputField" type="password" class="form-control" placeholder="Password" maxlength="">
 							</div>
 							<br>
 							<div class="form-group text-center">

@@ -10,6 +10,10 @@
 			//$this->load->database();
 		}
 		
+		public function get_member_by_username($username){
+			return $this->db->get_where('member', array('username' => $username))->row();
+		}
+
 	}
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 
 	public function __construct()
 	{
@@ -23,8 +23,8 @@ class Home extends CI_Controller {
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-
-		$this->load->view('page/mainpage.php',$data);
+		
+		$this->load->view('page/mainpage.php');
 	}
 
 	public function register()
