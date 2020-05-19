@@ -18,16 +18,26 @@ class Home extends MY_Controller {
 		$this->load->view('page/login.php',$data);
 	}
 	
+	public function loginshow()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+
+		$this->load->view('page/login.php',$data);
+	}
+	
 	public function login()
 	{
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['navbar'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('template/footer.php', NULL, TRUE);
 		
-		$this->load->view('page/mainpage.php');
+		$this->load->view('page/mainpage.php', $data);
 	}
 
-	public function register()
+	public function registershow()
 	{
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);

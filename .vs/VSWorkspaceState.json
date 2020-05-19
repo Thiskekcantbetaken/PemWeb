@@ -10,6 +10,6 @@
     "\\application\\views\\page",
     "\\assets"
   ],
-  "SelectedNode": "\\application\\controllers\\Home.php",
+  "SelectedNode": "\\application\\models\\home_model.php",
   "PreviewInSolutionExplorer": false
 }

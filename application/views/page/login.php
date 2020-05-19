@@ -29,9 +29,6 @@
 							<br>
 							<div class="form-group text-center">
 								<button id="loginBtn" type="submit" class="btn">Login</button>
-								<a href="<?php echo base_url('index.php/Home/register'); ?>">
-									<input id="regBtn" type="button" value="Register" class="btn"></input>
-								</a>
 							</div>
 						</form>
 					</div>
