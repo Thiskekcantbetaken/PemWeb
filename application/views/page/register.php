@@ -19,25 +19,29 @@
                         <h2>Create new account</h2>
                     </div>
                     <div class="row justify-content-center" style="margin-top: 3rem;">
-                        <form id="loginForm" method="post">
+                        <?= validation_errors(); ?>
+                        <form id="loginForm" method="post" action="<?= site_url() . "/home/register"; ?>">
                             <div class="form-group">
-                                <input id="inputField" name="firstName" type="text" class="form-control" placeholder="First name" maxlength="">
+                                <input id="inputField" name="first_name" type="text" class="form-control" placeholder="First name" maxlength="" required>
                             </div>
                             <div class="form-group">
-                                <input id="inputField" name="lastName" type="text" class="form-control" placeholder="Last name" maxlength="">
+                                <input id="inputField" name="last_name" type="text" class="form-control" placeholder="Last name" maxlength="" required>
+							</div>
+							<div class="form-group">
+                                <input id="inputField" name="username" type="username" class="form-control" placeholder="Username" maxlength="" required>
                             </div>
                             <div class="form-group">
-                                <input id="inputField" name="email" type="email" class="form-control" placeholder="Email" maxlength="">
+                                <input id="inputField" name="email" type="email" class="form-control" placeholder="Email" maxlength="" required>
                             </div>
                             <div class="form-group">
-                                <input id="inputField" name="password" type="password" class="form-control" placeholder="Password" maxlength="">
+                                <input id="inputField" name="password" type="password" class="form-control" placeholder="Password" maxlength="" required>
                             </div>
                             <div class="form-group">
-                                <input id="inputField" name="confirmPassword" type="password" class="form-control" placeholder="Confirm password" maxlength="">
+                                <input id="inputField" name="passwordconf" type="password" class="form-control" placeholder="Confirm password" maxlength="" required> 
                             </div>
                             <div class="form-group">
                                 <label>Birthdate</label><br>
-                                <input id="dateField" placeholder="Choose a Date" type="date" id="birthDate" name="birthDate">
+                                <input id="dateField" placeholder="Choose a Date" type="date" id="birthDate" name="birthdate" required>
                             </div>
                             <div class="form-group">
                                 <label>Gender</label><br>

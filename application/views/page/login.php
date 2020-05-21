@@ -19,17 +19,18 @@
 						<img class="img-fluid" src="<?php echo base_url('/assets/gambar/Logotes.jpg'); ?>" alt="Logo" width="180px;">
 					</div>
 					<div class="row justify-content-center" style="margin-top: 3rem;">
-						<form id="" action="index.php/Home/login">
+						<?php validation_errors(); ?>
+						<form id="" action="<?= site_url() . "/home/login"; ?>">
 							<div class="form-group">
-								<input id="inputField" type="text" class="form-control" placeholder="Username" maxlength="">
+								<input id="inputField" type="text" class="form-control" placeholder="Username" maxlength="" required>
 							</div>
 							<div class="form-group">
-								<input id="inputField" type="password" class="form-control" placeholder="Password" maxlength="">
+								<input id="inputField" type="password" class="form-control" placeholder="Password" maxlength="" required>
 							</div>
 							<br>
 							<div class="form-group text-center">
 								<button id="loginBtn" type="submit" class="btn">Login</button>
-								<a href="<?php echo base_url('index.php/Home/register'); ?>">
+								<a href="<?= site_url() . "/home/showRegister"; ?>">
 									<input id="regBtn" type="button" value="Register" class="btn"></input>
 								</a>
 							</div>
