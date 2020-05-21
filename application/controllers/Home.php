@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 
 	public function __construct()
 	{
@@ -19,11 +19,20 @@ class Home extends CI_Controller {
 		$this->load->view('page/login.php',$data);
 	}
 	
+	public function loginshow()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+
+		$this->load->view('page/login.php',$data);
+	}
+	
 	public function login()
 	{
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+<<<<<<< HEAD
 
 		if($this->home_model->isLoggedIn()) {
 			redirect('page/mainpage.php',$data);
@@ -100,9 +109,15 @@ class Home extends CI_Controller {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$this->load->view('page/register', $data);
+=======
+		$data['navbar'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('template/footer.php', NULL, TRUE);
+		
+		$this->load->view('page/mainpage.php', $data);
+>>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
 	}
 
-	public function register()
+	public function registershow()
 	{
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);

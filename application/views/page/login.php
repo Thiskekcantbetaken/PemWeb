@@ -22,17 +22,27 @@
 						<?php validation_errors(); ?>
 						<form id="" action="<?= site_url() . "/home/login"; ?>">
 							<div class="form-group">
+<<<<<<< HEAD
 								<input id="inputField" type="text" class="form-control" placeholder="Username" maxlength="" required>
 							</div>
 							<div class="form-group">
 								<input id="inputField" type="password" class="form-control" placeholder="Password" maxlength="" required>
+=======
+								<input  id="inputField" type="text" class="form-control" placeholder="Username" maxlength="">
+							</div>
+							<div class="form-group">
+								<input  id="inputField" type="password" class="form-control" placeholder="Password" maxlength="">
+>>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
 							</div>
 							<br>
 							<div class="form-group text-center">
 								<button id="loginBtn" type="submit" class="btn">Login</button>
+<<<<<<< HEAD
 								<a href="<?= site_url() . "/home/showRegister"; ?>">
 									<input id="regBtn" type="button" value="Register" class="btn"></input>
 								</a>
+=======
+>>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
 							</div>
 						</form>
 					</div>
