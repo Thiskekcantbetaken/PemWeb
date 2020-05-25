@@ -19,30 +19,20 @@
 						<img class="img-fluid" src="<?php echo base_url('/assets/gambar/Logotes.jpg'); ?>" alt="Logo" width="180px;">
 					</div>
 					<div class="row justify-content-center" style="margin-top: 3rem;">
-						<?php validation_errors(); ?>
-						<form id="" action="<?= site_url() . "/home/login"; ?>">
+						<?php validation_errors(); echo $this->session->flashdata('message'); ?>
+						<form id="" action="<?= site_url() . "/home/login"; ?>" method="POST">
 							<div class="form-group">
-<<<<<<< HEAD
-								<input id="inputField" type="text" class="form-control" placeholder="Username" maxlength="" required>
+								<input id="inputField" name="login_username" type="text" class="form-control" placeholder="Username" maxlength="" required>
 							</div>
 							<div class="form-group">
-								<input id="inputField" type="password" class="form-control" placeholder="Password" maxlength="" required>
-=======
-								<input  id="inputField" type="text" class="form-control" placeholder="Username" maxlength="">
-							</div>
-							<div class="form-group">
-								<input  id="inputField" type="password" class="form-control" placeholder="Password" maxlength="">
->>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
+								<input id="inputField" name="login_password" type="password" class="form-control" placeholder="Password" maxlength="" required> 
 							</div>
 							<br>
 							<div class="form-group text-center">
-								<button id="loginBtn" type="submit" class="btn">Login</button>
-<<<<<<< HEAD
+								<input id="loginBtn" type="submit" class="btn" value="Login" />
 								<a href="<?= site_url() . "/home/showRegister"; ?>">
 									<input id="regBtn" type="button" value="Register" class="btn"></input>
 								</a>
-=======
->>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
 							</div>
 						</form>
 					</div>
