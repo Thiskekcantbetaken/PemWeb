@@ -11,6 +11,13 @@ class Home extends CI_Controller {
 		$this->load->library('form_validation');
 	}
 
+	public function loggedIn() {
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		
+		$this->load->view('page/mainpage',$data);
+	}
+
 	public function index()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -18,13 +25,11 @@ class Home extends CI_Controller {
 		
 		$this->load->view('page/login.php',$data);
 	}
-	
-	public function loginshow()
-	{
-		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
-		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 
-		$this->load->view('page/login.php',$data);
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('home');
 	}
 	
 	public function login()
@@ -32,11 +37,11 @@ class Home extends CI_Controller {
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-<<<<<<< HEAD
 
 		if($this->home_model->isLoggedIn()) {
-			redirect('page/mainpage.php',$data);
-		  }
+			redirect('home/loggedIn');
+			}
+			
 		  else {
 			$username = strtolower($this->input->post("login_username", TRUE));
 			$password = $this->input->post("login_password", TRUE);
@@ -56,16 +61,16 @@ class Home extends CI_Controller {
 				  redirect('admin');
 				}
 				else {
-				  redirect('page/mainpage.php',$data);
+				  redirect('home/loggedIn');
 				}
 			  }
 			}
 			else {
 			  $this->session->set_flashdata('message', 'Your email or password is incorrect!');
-			  $this->load->view('page/mainpage.php',$data);
+			  $this->load->view('page/login.php',$data);
 			}
 		  }
-	}
+	} 
 
 	public function registerValidations()
   {
@@ -109,15 +114,9 @@ class Home extends CI_Controller {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$this->load->view('page/register', $data);
-=======
-		$data['navbar'] = $this->load->view('template/navbar.php', NULL, TRUE);
-		$data['footer'] = $this->load->view('template/footer.php', NULL, TRUE);
-		
-		$this->load->view('page/mainpage.php', $data);
->>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
 	}
 
-	public function registershow()
+	public function register()
 	{
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
