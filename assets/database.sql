@@ -15,5 +15,39 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE admin (
+  id_admin INT NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR (255) NOT NULL,
+  PRIMARY KEY (id_admin)
+);
+
+CREATE TABLE barang (
+  id_barang INT NOT NULL , 
+  nama_barang VARCHAR(255) NOT NULL,
+  harga_barang INT NOT NULL,
+  stok INT NOT NULL,
+  jumlah_terjual INT , 
+  foto VARCHAR (255),
+  PRIMARY KEY (id_barang) 
+);
+
+CREATE TABLE transaksi (
+  waktu DATE , 
+  id_transaksi INT NOT NULL,
+  id INT NOT NULL , 
+  status INT NOT NULL,
+  PRIMARY KEY (id_transaksi),
+  FOREIGN KEY (id) references users (id)
+);
+
+CREATE TABLE transaksi_detail (
+  id_barang INT NOT NULL ,
+  id_transaksi INT NOT NULL,
+  jumlah INT NOT NULL,
+  FOREIGN KEY (id_barang) REFERENCES barang (id_barang),
+  FOREIGN KEY (id_transaksi) REFERENCES transaksi (id_transaksi) 
+);
+
 INSERT INTO users VALUES
-(1, 'Test', 'Ting',  'coba', 'test@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2000-04-07', 'M',2);
+(1, 'Test', 'Ting', 'coba', 'test@gmail.com', '$2y$10$y3e6GkIMkFXg3/Pk.hnzVuai9Supasyjv9lel/twyB9yRZagZUEnG', '2000-01-01', 'M', 2);
