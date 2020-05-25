@@ -35,7 +35,6 @@
 			return $query->result();
 			}
 		}
-<<<<<<< HEAD
 
 		public function register($registerData) 
 		{
@@ -67,13 +66,6 @@
 		  }
 		}
 	  
-=======
-		
-		public function get_member_by_username($username){
-			return $this->db->get_where('member', array('username' => $username))->row();
-		}
-
->>>>>>> 701971ae7a04e7e46bd165cdbb5d97a80fdf4455
 	}
 
 	
