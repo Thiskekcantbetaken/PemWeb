@@ -14,7 +14,7 @@
 	<?php echo $style; ?>
 </head>
 
-<body>
+<body id="register">
 	<?php echo $navbar; ?>
 	<br/>
 	<br/>
@@ -22,6 +22,7 @@
 	<br/>
 	<br/>
     <div>Ini mainpage</div>
+	<p><a href="<?= site_url() . "/home/logout"; ?>">logout</p>
 	<?php echo $footer; ?>
 </body>
 </html>
