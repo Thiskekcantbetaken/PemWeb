@@ -22,8 +22,65 @@ class Home extends CI_Controller {
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 		
-		$this->load->view('page/login.php',$data);
+		$this->load->view('page/mainpage.php',$data);
+	}
+	
+	public function showLogin()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+
+		$this->load->view('page/login', $data);
+	}
+
+	public function registerShow()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		
+		$this->load->view('page/customer_register.php',$data);
+	}
+
+	public function myAccount()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('template/account.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		
+		$this->load->view('page/my_account.php',$data);
+	}
+
+	public function showShop()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		
+		$this->load->view('page/shop.php',$data);
+	}
+
+	public function showCart()
+	{
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		
+		$this->load->view('page/cart.php',$data);
 	}
 
 	public function logout()
@@ -107,13 +164,6 @@ class Home extends CI_Controller {
     $this->form_validation->set_rules('gender', 'Gender', 'trim|required', array(
       'required' => "You must provide a gender!"
     ));
-	}
-	
-	public function showRegister()
-	{
-		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
-		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-		$this->load->view('page/register', $data);
 	}
 
 	public function register()

@@ -4,12 +4,13 @@
     "\\application",
     "\\application\\config",
     "\\application\\controllers",
-    "\\application\\models",
     "\\application\\views",
     "\\application\\views\\include",
     "\\application\\views\\page",
-    "\\assets"
+    "\\application\\views\\template",
+    "\\assets",
+    "\\assets\\css"
   ],
-  "SelectedNode": "\\application\\models\\home_model.php",
+  "SelectedNode": "\\assets\\css\\login.css",
   "PreviewInSolutionExplorer": false
 }
