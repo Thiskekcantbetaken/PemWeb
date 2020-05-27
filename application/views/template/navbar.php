@@ -7,7 +7,7 @@
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
                
                <a href="<?php echo site_url('Home/myAccount'); ?>" class="btn btn-success btn-sm">Welcome</a>
-               <a href="checkout.php">3 Items In Your Cart | Total Price: Rp23.597.000,- </a>
+               <a href="checkout.php">0 Items In Your Cart | Total Price: Rp23.597.000,- </a>
                
            </div><!-- col-md-6 offer Finish -->
            

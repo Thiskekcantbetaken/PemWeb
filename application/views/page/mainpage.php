@@ -165,12 +165,12 @@
    <div id="content" class="container"><!-- container Begin -->
        
        <div class="row"><!-- row Begin -->
-           
+           <?php foreach($data->result() as $loop):?>
            <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
                
                <div class="product"><!-- product Begin -->
                    
-                   <a href="phantomt.php">
+                   <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>">
                        
                        <img class="img-responsive" src="admin_area/product_images/Product-3a.jpg" alt="Product 1">
                        
@@ -179,16 +179,16 @@
                    <div class="text"><!-- text Begin -->
                        
                        <h3>
-                           <a href="phantomt.php">
-                               Phantom T
+                           <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>">
+                               <?php echo $loop->nama_barang?>
                            </a>
                        </h3>
                        
-                       <p class="price">Rp299.000,-</p>
+                       <p class="price">Rp<?php echo $loop->harga_barang?>,-</p>
                        
                        <p class="button">
                            
-                           <a href="phantomt.php" class="btn btn-default">View Details</a>
+                           <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>" class="btn btn-default">View Details</a>
                            
                            <a href="details.php" class="btn btn-primary">
                                
@@ -205,289 +205,9 @@
                </div><!-- product Finish -->
                
            </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="sweetcoat.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/boys-Puffer-Coat-With-Detachable-Hood-2.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="sweetcoat.php">
-                               Sweet Coat
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp399.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="sweetcoat.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="ringstone.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/women-diamond-heart-ring-3.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="ringstone.php">
-                               Ringstone
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp21.999.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="ringstone.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="blackmatte.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Man-Geox-Winter-jacket-1.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="blackmatte.php">
-                               Black Matte
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp1.299.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="blackmatte.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="redwinter.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Red-Winter-jacket-2.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="redwinter.php">
-                               Classic Winter Red
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp3.299.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="redwinter.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="catcoat.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/waxed-cotton-coat-woman-1.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="catcoat.php">
-                               Cat Coat
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp8.999.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="catcoat.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="montblank.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Mont-Blanc-Belt-man-1.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="montblank.php">
-                               Mont Blanc Blank
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp1.899.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="montblank.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
-           <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
-               
-               <div class="product"><!-- product Begin -->
-                   
-                   <a href="suarez.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Man-Adidas-Suarez-Slop-On-1.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="suarez.php">
-                               Adidas Suarez
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp1.499.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="suarez.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-               
-           </div><!-- col-sm-4 col-sm-6 single Finish -->
-           
+		   <?php endforeach;?>
        </div><!-- row Finish -->
-       
+		  
    </div><!-- container Finish -->
    
    <?php echo $footer; ?>

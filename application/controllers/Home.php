@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -24,7 +23,7 @@ class Home extends CI_Controller {
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		
+		$data['data'] = $this->home_model->getAllBarang();
 		$this->load->view('page/mainpage.php',$data);
 	}
 	
@@ -82,7 +81,24 @@ class Home extends CI_Controller {
 		
 		$this->load->view('page/cart.php',$data);
 	}
+	public function showDetails($id){
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['data'] = $this->home_model->getBarang($id);
+		$this->load->view('page/details.php',$data);
+	}
+	public function addToCart($id){
+		$size = $this->input->post('size');
+		$jumlah = $this->input->post('jumlah');
+		if(isset($_SESSION['user_id'])){
+			$this->home_model->addToCart($_SESSION['user_id'],$id,$jumlah,$size);
+			$this->index();
 
+		}else{
+			$this->showLogin();
+		}
+		
+	}
 	public function logout()
 	{
 		$this->session->sess_destroy();

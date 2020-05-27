@@ -65,7 +65,26 @@
 			return $query->row_array();
 		  }
 		}
-	  
+	  public function getAllBarang(){
+			$query = "SELECT * FROM barang";
+			$result = $this->db->query($query);
+			return $result;
+	  }
+	  public function getBarang($id){
+		  $this->db->select('*');
+		  $this->db->from('barang');
+		  $this->db->where('id_barang',$id);
+		  $query = $this->db->get();
+		  if($query->num_rows() == 0){
+			  return FALSE;
+		  }else{
+			  return $query->row_array();
+		  }
+	  }
+	  public function addToCart($id_user,$id_barang,$jumlah,$size){
+		  $query = "INSERT INTO cart values($id_user,$id_barang,$jumlah,'$size'";
+		  $this->db->query($query);
+	  }
 	}
 
 	

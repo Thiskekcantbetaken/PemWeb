@@ -46,7 +46,7 @@
                            
                        </center><!-- center Finish -->
                        
-                       <form action="customer_register.php" method="post" enctype="multipart/form-data"><!-- form Begin -->
+                       <form action="<?php echo base_url() . 'index.php/Home/register'?>" method="post" enctype="multipart/form-data"><!-- form Begin -->
                            
                            <div class="form-group"><!-- form-group Begin -->
                                

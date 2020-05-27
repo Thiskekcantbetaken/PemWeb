@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FaShop</title>
-    <link rel="stylesheet" href="styles/bootstrap-337.min.css">
-    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/css/bootstrap-337.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/css/font-awesome.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?>">
 </head>
 <body>
    
@@ -172,7 +172,7 @@
    
    <?php 
     
-    include("includes/sidebar.php");
+    include("include/sidebar.php");
     
     ?>
                
@@ -217,14 +217,14 @@
                    
                    <div class="col-sm-6"><!-- col-sm-6 Begin -->
                        <div class="box"><!-- box Begin -->
-                           <h1 class="text-center">Phantom T</h1>
+                           <h1 class="text-center"><?php echo $data['nama_barang']?></h1>
                            
-                           <form action="details.php" class="form-horizontal" method="post"><!-- form-horizontal Begin -->
+                           <form action="<?php echo base_url() .'index.php/Home/addToCart/'.$data['id_barang']?>" class="form-horizontal" method="post"><!-- form-horizontal Begin -->
                                <div class="form-group"><!-- form-group Begin -->
                                    <label for="" class="col-md-5 control-label">Products Quantity</label>
                                    
                                    <div class="col-md-7"><!-- col-md-7 Begin -->
-                                          <select name="product_qty" id="" class="form-control"><!-- select Begin -->
+                                          <select name="jumlah" id="" class="form-control"><!-- select Begin -->
                                            <option>1</option>
                                            <option>2</option>
                                            <option>3</option>
@@ -241,7 +241,7 @@
                                    
                                    <div class="col-md-7"><!-- col-md-7 Begin -->
                                        
-                                       <select name="product_size" class="form-control"><!-- form-control Begin -->
+                                       <select name="size" class="form-control"><!-- form-control Begin -->
                                           
                                            <option>Select a Size</option>
                                            <option>Small</option>
@@ -253,7 +253,7 @@
                                    </div><!-- col-md-7 Finish -->
                                </div><!-- form-group Finish -->
                                
-                               <p class="price">Rp299.000,-</p>
+                               <p class="price">Rp<?php echo $data['harga_barang']?>,-</p>
                                
                                <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart"> Add to cart</button></p>
                                
@@ -294,8 +294,8 @@
                    
                    <p>
                        
-                       Phantom T adalah kaos dengan kesan simple yang bertajuk hitam putih dengan logo M-Dev Media yang berada di posisi tengah, mengacu pusat perhatian kepada orang-orang yang melihatnya.
-                       
+						<?php echo $data['deskripsi']?>
+
                    </p>
                    
                        <h4>Size</h4>
@@ -374,7 +374,7 @@
    
    <?php 
     
-    include("includes/footer.php");
+    include("include/footer.php");
     
     ?>
     
