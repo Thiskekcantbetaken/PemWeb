@@ -85,39 +85,27 @@
 		  $query = "INSERT INTO cart values($id_user,$id_barang,$jumlah,'$size'";
 		  $this->db->query($query);
 	  }
-
-	  public function view(){
-		return $this->db->get('users')->result();
-	  }
-	  public function upload(){
-		$config['upload_path'] = './upload/';
-		$config['allowed_types'] = 'jpg|png|jpeg';
-		$config['max_size']  = '2048';
-		$config['remove_space'] = TRUE;
 	  
-		$this->load->library('upload', $config); // Load konfigurasi uploadnya
-		if($this->upload->do_upload('input_gambar')){ // Lakukan upload dan Cek jika proses upload berhasil
-		  // Jika berhasil :
-		  $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-		  return $return;
-		}else{
-		  // Jika gagal :
-		  $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-		  return $return;
-		}
+	  public function getBarangSearched($search){
+		  $this->db->select('*');
+		  $this->db->from('barang');
+		  $this->db->like('nama_barang',$search);
+		  $query = $this->db->get();
+		  if($query->num_rows() == 0){
+				return FALSE;
+		  }else{
+			  return $query;
+		  }
 	  }
-	  
-	  // Fungsi untuk menyimpan data ke database
-	  public function save($upload){
-		$data = array(
-		  'imagename' => $upload['file']['imagename'],
-		  'ukuran_file' => $upload['file']['file_size'],
-		  'tipe_file' => $upload['file']['file_type']
-		);
-		
-		$this->db->insert('users', $data);
+	  public function getFilterResult($minHarga,$maxHarga){
+		  $query ="SELECT * FROM barang WHERE harga_barang >= $minHarga AND harga_barang <= $maxHarga";
+		  $result = $this->db->query($query);
+		  if($result->num_rows() == 0){
+			  return FALSE;
+		  }else{
+			return $result;
+		  }
 	  }
-	
 	}
 
 		

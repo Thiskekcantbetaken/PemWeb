@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Home extends CI_Controller {
 	public function __construct()
 	{
@@ -9,14 +8,13 @@ class Home extends CI_Controller {
 		$this->load->helper(array('form','url'));
 		$this->load->library('form_validation');
 	}
-
 	public function loggedIn() {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$data['header'] = $this->load->view('template/loginnav.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 		$data['data'] = $this->home_model->getAllBarang();
-		
+
 		$this->load->view('page/loginpage',$data);
 	}
 
@@ -37,10 +35,8 @@ class Home extends CI_Controller {
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-
 		$this->load->view('page/login', $data);
 	}
-
 	public function registerShow()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -51,7 +47,6 @@ class Home extends CI_Controller {
 		
 		$this->load->view('page/customer_register.php',$data);
 	}
-
 	public function myAccount()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -62,7 +57,6 @@ class Home extends CI_Controller {
 		
 		$this->load->view('page/my_account.php',$data);
 	}
-
 	public function showShop()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -73,7 +67,6 @@ class Home extends CI_Controller {
 		
 		$this->load->view('page/shop.php',$data);
 	}
-
 	public function showCart()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -96,7 +89,6 @@ class Home extends CI_Controller {
 		if(isset($_SESSION['user_id'])){
 			$this->home_model->addToCart($_SESSION['user_id'],$id,$jumlah,$size);
 			$this->index();
-
 		}else{
 			$this->showLogin();
 		}
@@ -110,7 +102,7 @@ class Home extends CI_Controller {
 	
 	public function login()
 	{
-	
+
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
@@ -150,30 +142,24 @@ class Home extends CI_Controller {
 			}
 		  }
 	} 
-
 	public function registerValidations()
   {
     $this->form_validation->set_rules('first_name', 'First Name', 'trim|required', array(
       'required' => "You must provide a first name!"
     ));
-
     $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required', array(
       'required' => "You must provide a last name!"
     ));
-
     $this->form_validation->set_rules('username', 'Username', 'trim|required', array(
       'required' => "You must provide a username!"
     ));
-
     $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
       'required' => "You must provide an email!",
       'valid_email' => "Your email is not a valid email!"
     ));
-
     $this->form_validation->set_rules('password', 'Password', 'trim|required', array(
       'required' => "You must provide a password!"
     ));
-
     $this->form_validation->set_rules('passwordconf', 'Password Confirm', 'trim|required|matches[password]', array(
       'required' => "You must fill this column!",
       'matches' => "Your passwords do not match!"
@@ -198,15 +184,13 @@ class Home extends CI_Controller {
     $this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required', array(
       'required' => "You must provide a birthdate!"
     ));
-
     $this->form_validation->set_rules('gender', 'Gender', 'trim|required', array(
       'required' => "You must provide a gender!"
     ));
 	}
-
 	public function register()
 	{
-	
+
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
@@ -219,7 +203,7 @@ class Home extends CI_Controller {
 			$this->load->view('page/customer_register', $data);
 		  return;
 		}
-	
+
 		$registerData = [
 		  'id' => '',
 		  'first_name' => $this->input->post('first_name', TRUE),
@@ -227,6 +211,7 @@ class Home extends CI_Controller {
 		  'username' => $this->input->post('username', TRUE),
 		  'email' => $this->input->post('email', TRUE),
 		  'password' => password_hash($this->input->post('password', TRUE), PASSWORD_BCRYPT),
+		  'birthdate' => $this->input->post('birthdate', TRUE),
 		  'country' =>$this->input->post('country',TRUE), 
 		  'city' =>$this->input->post('city',TRUE), 
 		  'country' =>$this->input->post('country',TRUE), 
@@ -235,36 +220,9 @@ class Home extends CI_Controller {
 		  'image' =>$this->input->post('image',TRUE), 
 		  'privilege_level' => 0
 		];
-	
+
 		$this->home_model->register($registerData);
 		redirect('home');
 	}
-
-	public function showProfilePic(){
-		$data['users'] = $this->home_model->view();
-		$this->load->view('users/view', $data);
-	  }
-
-	  public function tambah(){
-		$data = array();
-		
-		if($this->input->post('submit')){ // Jika user menekan tombol Submit (Simpan) pada form
-		  // lakukan upload file dengan memanggil function upload yang ada di home_model.php
-		  $upload = $this->home_model->upload();
-		  
-		  if($upload['result'] == "success"){ // Jika proses upload sukses
-			 // Panggil function save yang ada di  home_model.php untuk menyimpan data ke database
-			$this->home_model->save($upload);
-			
-			redirect('customer_register'); // Redirect kembali ke halaman awal / halaman view data
-		  }else{ // Jika proses upload gagal
-			$data['message'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
-		  }
-		}
-		
-		$this->load->view('page/customer_register', $data);
-	  }
-	  
 }
-
 ?>

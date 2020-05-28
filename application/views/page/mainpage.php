@@ -165,7 +165,10 @@
    <div id="content" class="container"><!-- container Begin -->
        
        <div class="row"><!-- row Begin -->
-           <?php foreach($data->result() as $loop):?>
+		   <?php
+		   if($data != NULL)
+		   foreach($data->result() as $loop):
+		   ?>
            <div class="col-sm-4 col-sm-6 single"><!-- col-sm-4 col-sm-6 single Begin -->
                
                <div class="product"><!-- product Begin -->
