@@ -82,7 +82,7 @@
 		  }
 	  }
 	  public function addToCart($id_user,$id_barang,$jumlah,$size){
-		  $query = "INSERT INTO cart values($id_user,$id_barang,$jumlah,'$size'";
+		  $query = "INSERT INTO cart values($id_user,$id_barang,$jumlah,'$size')";
 		  $this->db->query($query);
 	  }
 	  

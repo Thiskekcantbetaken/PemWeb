@@ -102,7 +102,6 @@ class Home extends CI_Controller {
 	
 	public function login()
 	{
-
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
@@ -117,7 +116,6 @@ class Home extends CI_Controller {
 			$username = strtolower($this->input->post("login_username", TRUE));
 			$password = $this->input->post("login_password", TRUE);
 			$flag = $this->home_model->checkUser($username, $password);
-			
 			if($flag != FALSE) {
 			  foreach($flag as $i) {
 				$session_data = [
