@@ -13,11 +13,8 @@ class Home extends CI_Controller {
 	public function loggedIn() {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-		$data['header'] = $this->load->view('template/loginnav.php', NULL, TRUE);
-		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		$data['data'] = $this->home_model->getAllBarang();
 		
-		$this->load->view('page/loginpage',$data);
+		$this->load->view('page/mainpage',$data);
 	}
 
 	public function index()
@@ -81,7 +78,7 @@ class Home extends CI_Controller {
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		
+		$data['data'] = $this->home_model->getAllCart();
 		$this->load->view('page/cart.php',$data);
 	}
 	public function showDetails($id){
@@ -93,13 +90,13 @@ class Home extends CI_Controller {
 	public function addToCart($id){
 		$size = $this->input->post('size');
 		$jumlah = $this->input->post('jumlah');
-		if(isset($_SESSION['user_id'])){
-			$this->home_model->addToCart($_SESSION['user_id'],$id,$jumlah,$size);
-			$this->index();
+		$this->home_model->addToCart(1,$id,$jumlah,$size);
+		$this->index();
+		/*if(isset($_SESSION['user_id'])){
 
 		}else{
 			$this->showLogin();
-		}
+		}*/
 		
 	}
 	public function logout()
@@ -113,9 +110,6 @@ class Home extends CI_Controller {
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
-		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
-		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 
 		if($this->home_model->isLoggedIn()) {
 			redirect('home/loggedIn');
@@ -125,7 +119,6 @@ class Home extends CI_Controller {
 			$username = strtolower($this->input->post("login_username", TRUE));
 			$password = $this->input->post("login_password", TRUE);
 			$flag = $this->home_model->checkUser($username, $password);
-			
 			if($flag != FALSE) {
 			  foreach($flag as $i) {
 				$session_data = [
@@ -140,7 +133,7 @@ class Home extends CI_Controller {
 				  redirect('admin');
 				}
 				else {
-				  redirect('home/loggedIn');
+				  $this->load->view('page/home');
 				}
 			  }
 			}
@@ -150,7 +143,46 @@ class Home extends CI_Controller {
 			}
 		  }
 	} 
+	public function search(){
+		if(isset($_POST['user_query'])){
+			$search = $_POST['user_query'];
+			$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+			$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+			$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+			$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+			$tmp = $this->home_model->getBarangSearched($search);
+			if($tmp == FALSE){
+				$data['data'] = NULL;
+			}else{
+				$data['data'] = $tmp;
+			}
+			$this->load->view('page/mainpage',$data);
 
+		}else{
+			$this->index();
+		}
+	}
+	public function filter(){
+		if(isset($_POST['minHarga'])){
+			if(isset($_POST['maxHarga'])){
+				$minHarga = $_POST['minHarga'];
+				$maxHarga = $_POST['maxHarga'];
+				$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+				$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+				$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+				$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+				$tmp = $this->home_model->getFilterResult($minHarga,$maxHarga);
+				if($tmp == FALSE){
+					$data['data'] = NULL;
+				} else {
+					$data['data'] = $tmp;
+				}
+				$this->load->view('page/mainpage',$data);
+			}
+		}else{
+			$this->index();
+		}
+	}
 	public function registerValidations()
   {
     $this->form_validation->set_rules('first_name', 'First Name', 'trim|required', array(
@@ -179,22 +211,6 @@ class Home extends CI_Controller {
       'matches' => "Your passwords do not match!"
     ));
 
-	$this->form_validation->set_rules('country', 'Country', 'trim|required', array(
-		'required' => "You must provide a country!"
-	));
-
-	$this->form_validation->set_rules('city', 'City', 'trim|required', array(
-		'required' => "You must provide a city!"
-	));
-
-	$this->form_validation->set_rules('contact', 'Contact', 'trim|required', array(
-		'required' => "You must provide a contact"
-	));
-
-	$this->form_validation->set_rules('address', 'Address', 'trim|required', array(
-		'required' => "You must provide a address!"
-	));
-
     $this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required', array(
       'required' => "You must provide a birthdate!"
     ));
@@ -209,14 +225,11 @@ class Home extends CI_Controller {
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
-		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 
 		$this->registerValidations();
 
 		if($this->form_validation->run() == FALSE) {
-			$this->load->view('page/customer_register', $data);
+			$this->load->view('page/register', $data);
 		  return;
 		}
 	
@@ -227,12 +240,8 @@ class Home extends CI_Controller {
 		  'username' => $this->input->post('username', TRUE),
 		  'email' => $this->input->post('email', TRUE),
 		  'password' => password_hash($this->input->post('password', TRUE), PASSWORD_BCRYPT),
-		  'country' =>$this->input->post('country',TRUE), 
-		  'city' =>$this->input->post('city',TRUE), 
-		  'country' =>$this->input->post('country',TRUE), 
-		  'address' => $this->input->post('address', TRUE),
+		  'birthdate' => $this->input->post('birthdate', TRUE),
 		  'gender' => $this->input->post('gender', TRUE),
-		  'image' =>$this->input->post('image',TRUE), 
 		  'privilege_level' => 0
 		];
 	

@@ -85,6 +85,26 @@
 		  $query = "INSERT INTO cart values($id_user,$id_barang,$jumlah,'$size'";
 		  $this->db->query($query);
 	  }
+	  public function getBarangSearched($search){
+		  $this->db->select('*');
+		  $this->db->from('barang');
+		  $this->db->like('nama_barang',$search);
+		  $query = $this->db->get();
+		  if($query->num_rows() == 0){
+				return FALSE;
+		  }else{
+			  return $query;
+		  }
+	  }
+	  public function getFilterResult($minHarga,$maxHarga){
+		  $query ="SELECT * FROM barang WHERE harga_barang >= $minHarga AND harga_barang <= $maxHarga";
+		  $result = $this->db->query($query);
+		  if($result->num_rows() == 0){
+			  return FALSE;
+		  }else{
+			return $result;
+		  }
+	  }
 	}
 
 	
