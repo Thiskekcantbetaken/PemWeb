@@ -13,8 +13,11 @@ class Home extends CI_Controller {
 	public function loggedIn() {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/loginnav.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		$data['data'] = $this->home_model->getAllBarang();
 		
-		$this->load->view('page/mainpage',$data);
+		$this->load->view('page/loginpage',$data);
 	}
 
 	public function index()
@@ -110,6 +113,9 @@ class Home extends CI_Controller {
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 
 		if($this->home_model->isLoggedIn()) {
 			redirect('home/loggedIn');
@@ -173,6 +179,22 @@ class Home extends CI_Controller {
       'matches' => "Your passwords do not match!"
     ));
 
+	$this->form_validation->set_rules('country', 'Country', 'trim|required', array(
+		'required' => "You must provide a country!"
+	));
+
+	$this->form_validation->set_rules('city', 'City', 'trim|required', array(
+		'required' => "You must provide a city!"
+	));
+
+	$this->form_validation->set_rules('contact', 'Contact', 'trim|required', array(
+		'required' => "You must provide a contact"
+	));
+
+	$this->form_validation->set_rules('address', 'Address', 'trim|required', array(
+		'required' => "You must provide a address!"
+	));
+
     $this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required', array(
       'required' => "You must provide a birthdate!"
     ));
@@ -187,11 +209,14 @@ class Home extends CI_Controller {
 	
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 
 		$this->registerValidations();
 
 		if($this->form_validation->run() == FALSE) {
-			$this->load->view('page/register', $data);
+			$this->load->view('page/customer_register', $data);
 		  return;
 		}
 	
@@ -202,8 +227,12 @@ class Home extends CI_Controller {
 		  'username' => $this->input->post('username', TRUE),
 		  'email' => $this->input->post('email', TRUE),
 		  'password' => password_hash($this->input->post('password', TRUE), PASSWORD_BCRYPT),
-		  'birthdate' => $this->input->post('birthdate', TRUE),
+		  'country' =>$this->input->post('country',TRUE), 
+		  'city' =>$this->input->post('city',TRUE), 
+		  'country' =>$this->input->post('country',TRUE), 
+		  'address' => $this->input->post('address', TRUE),
 		  'gender' => $this->input->post('gender', TRUE),
+		  'image' =>$this->input->post('image',TRUE), 
 		  'privilege_level' => 0
 		];
 	

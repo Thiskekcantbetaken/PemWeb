@@ -48,7 +48,7 @@
                        
                        <form id="" action="<?= site_url() . "/home/login"; ?>" method="POST">
 							<div class="form-group">
-								<label>Email Address</label>
+								<label>Username</label>
 								<input id="inputField" name="login_username" type="text" class="form-control" placeholder="Username" maxlength="" required>
 							</div>
 							<div class="form-group">

@@ -9,8 +9,13 @@ CREATE TABLE users (
   username VARCHAR(100) NOT NULL UNIQUE,
   email VARCHAR(100) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
+	country VARCHAR(255) NOT NULL,
+	city VARCHAR(255) NOT NULL,
+	contact VARCHAR(255) NOT NULL,
+	address VARCHAR(255) NOT NULL,
   birthdate DATE NOT NULL,
   gender VARCHAR(2) NOT NULL,
+	image text (255) NOT NULL,
   privilege_level INT NOT NULL,
   PRIMARY KEY (id)
 );
