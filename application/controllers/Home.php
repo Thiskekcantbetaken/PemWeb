@@ -165,21 +165,21 @@ class Home extends CI_Controller {
       'matches' => "Your passwords do not match!"
     ));
 
-	$this->form_validation->set_rules('country', 'Country', 'trim|required', array(
-		'required' => "You must provide a country!"
-	));
+    $this->form_validation->set_rules('country', 'Country', 'trim|required', array(
+       'required' => "You must provide a country!"
+    ));
 
-	$this->form_validation->set_rules('city', 'City', 'trim|required', array(
-		'required' => "You must provide a city!"
-	));
+    $this->form_validation->set_rules('city', 'City', 'trim|required', array(
+        'required' => "You must provide a city!"
+    ));
 
-	$this->form_validation->set_rules('contact', 'Contact', 'trim|required', array(
-		'required' => "You must provide a contact"
-	));
+    $this->form_validation->set_rules('contact', 'Contact', 'trim|required', array(
+       'required' => "You must provide a contact"
+    ));
 
-	$this->form_validation->set_rules('address', 'Address', 'trim|required', array(
-		'required' => "You must provide a address!"
-	));
+    $this->form_validation->set_rules('address', 'Address', 'trim|required', array(
+      'required' => "You must provide a address!"
+    ));
 
     $this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required', array(
       'required' => "You must provide a birthdate!"
