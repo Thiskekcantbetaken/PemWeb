@@ -15,7 +15,9 @@ CREATE TABLE users (
 	address VARCHAR(255) NOT NULL,
   birthdate DATE NOT NULL,
   gender VARCHAR(2) NOT NULL,
-	image text (255) NOT NULL,
+	imagename TEXT (255) NOT NULL,
+	ukuran_file DOUBLE NOT NULL,
+	tipe_file VARCHAR (20) NOT NULL,
   privilege_level INT NOT NULL,
   PRIMARY KEY (id)
 );
@@ -55,4 +57,4 @@ CREATE TABLE transaksi_detail (
 );
 
 INSERT INTO users VALUES
-(1, 'Test', 'Ting', 'coba', 'test@gmail.com', '$2y$10$y3e6GkIMkFXg3/Pk.hnzVuai9Supasyjv9lel/twyB9yRZagZUEnG', '2000-01-01', 'M', 2);
+(1, 'Test', 'Ting', 'coba', 'test@gmail.com', '$2y$10$y3e6GkIMkFXg3/Pk.hnzVuai9Supasyjv9lel/twyB9yRZagZUEnG','Indonesia','Jakarta','0812122313','JakartaBarat no 31', '2000-01-01', 'M','avenger.png','1.340.464','png', 2);

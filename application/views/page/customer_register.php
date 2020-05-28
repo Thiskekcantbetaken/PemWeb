@@ -144,11 +144,11 @@
                             </div><!-- form-group Finish -->
                            
                            <div class="form-group"><!-- form-group Begin -->
-                               
+						   <?php echo form_open("home/tambah", array('enctype'=>'multipart/form-data')); ?>
                                <label>Your Profile Picture</label>
                                
-                               <input type="file" class="form-control form-height-custom" name="c_image" required>
-                               
+                               <input type="file" class="form-control form-height-custom" name="input_image" value="Simpan" required>
+                               <?php echo form_close(); ?>
                            </div><!-- form-group Finish -->
                            
                            <div class="text-center"><!-- text-center Begin -->

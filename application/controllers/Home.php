@@ -240,8 +240,31 @@ class Home extends CI_Controller {
 		redirect('home');
 	}
 
+	public function showProfilePic(){
+		$data['users'] = $this->home_model->view();
+		$this->load->view('users/view', $data);
+	  }
 
-
+	  public function tambah(){
+		$data = array();
+		
+		if($this->input->post('submit')){ // Jika user menekan tombol Submit (Simpan) pada form
+		  // lakukan upload file dengan memanggil function upload yang ada di home_model.php
+		  $upload = $this->home_model->upload();
+		  
+		  if($upload['result'] == "success"){ // Jika proses upload sukses
+			 // Panggil function save yang ada di  home_model.php untuk menyimpan data ke database
+			$this->home_model->save($upload);
+			
+			redirect('customer_register'); // Redirect kembali ke halaman awal / halaman view data
+		  }else{ // Jika proses upload gagal
+			$data['message'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
+		  }
+		}
+		
+		$this->load->view('page/customer_register', $data);
+	  }
+	  
 }
 
 ?>
