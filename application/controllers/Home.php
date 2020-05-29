@@ -47,6 +47,20 @@ class Home extends CI_Controller {
 		
 		$this->load->view('page/customer_register.php',$data);
 	}
+	public function showMyOrder(){
+		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('template/account.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		$tmp = $this->home_model->getMyHistory($_SESSION['user_id']);
+		if($tmp === FALSE){
+			$data['data'] = NULL;
+		}else{
+			$data['data'] = $tmp;
+		}
+		$this->load->view('page/my_orders',$data);
+	}
 	public function myAccount()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -54,9 +68,15 @@ class Home extends CI_Controller {
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('template/account.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		
-		$this->load->view('page/my_account.php',$data);
+		if(isset($_SESSION['user_id'])){
+			$id = $_SESSION['user_id'];
+			$data['data'] = $this->home_model->getUserId($id);
+			$this->load->view('page/my_account.php',$data);
+		}else{
+			$this->showLogin();
+		}
 	}
+
 	public function showShop()
 	{
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -74,8 +94,25 @@ class Home extends CI_Controller {
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+		if(isset($_SESSION['user_id'])){
+			$tmp = $this->home_model->getCart($_SESSION['user_id']);
+			if($tmp == FALSE){
+				$data['data'] = NULL;
+				$data['count'] = NULL;
+				$data['grandTotal'] = NULL;
+			}else{
+				$data['data'] = $tmp;
+				$data['count'] = $tmp->num_rows();$tmp2 = 0;
+				foreach($tmp->result() as $loop){
+					$tmp2 = $tmp2 + $loop->total;
+				}
+				$data['grandTotal'] = $tmp2;
+			}
+			$this->load->view('page/cart.php',$data);
+		}else{
+			$this->showLogin();
+		}
 		
-		$this->load->view('page/cart.php',$data);
 	}
 	public function showDetails($id){
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -139,7 +176,86 @@ class Home extends CI_Controller {
 			  $this->load->view('page/login.php',$data);
 			}
 		  }
+	}
+	public function search(){
+		if(isset($_POST['user_query'])){
+			$search = $_POST['user_query'];
+			$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+			$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+			$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+			$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+			$tmp = $this->home_model->getBarangSearched($search);
+			if($tmp == FALSE){
+				$data['data'] = NULL;
+			}else{
+				$data['data'] = $tmp;
+			}
+			$this->load->view('page/mainpage',$data);
+
+		}else{
+			$this->index();
+		}
+	}
+	public function filter(){
+		if(isset($_POST['minHarga'])){
+			if(isset($_POST['maxHarga'])){
+				$minHarga = $_POST['minHarga'];
+				$maxHarga = $_POST['maxHarga'];
+				$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
+				$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+				$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+				$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
+				$tmp = $this->home_model->getFilterResult($minHarga,$maxHarga);
+				if($tmp == FALSE){
+					$data['data'] = NULL;
+				} else {
+					$data['data'] = $tmp;
+				}
+				$this->load->view('page/mainpage',$data);
+			}
+		}else{
+			$this->index();
+		}
+	}
+	public function updateProfile(){
+		$data =[
+			'id' => $_SESSION['user_id'],
+			'firstName' => $this->input->post('firstName',TRUE),
+			'lastName' => $this->input->post('lastName',TRUE),
+			'username' => $this->input->post('username',TRUE),
+			'email' => $this->input->post('Email',TRUE),
+			'birthDate' => $this->input->post('birthDate',TRUE),
+			'profile' => $this->input->post('profile',TRUE)
+		];
+		$result = $this->home_model->updateMyProfile($data);
+		if($result === FALSE){
+			echo "<script>alert('Error updating!')</script>";
+			$this->myAccount();
+		}else{
+			echo "<script>alert('Success!')</script>";
+			$this->myAccount();
+		}
+	}
+	public function checkout(){
+		$result = $this->home_model->checkoutCart($_SESSION['user_id']);
+		if($result === FALSE){
+			echo "<script>alert('Error checkout!')</script>";
+			$this->showCart();
+		}else{
+			echo "<script>alert('Success!')</script>";
+			$this->index();
+		}
 	} 
+	public function confirmPay($id){
+		$result = $this->home_model->confirmTransaction($id);
+		if($result === FALSE){
+			echo "<script>alert('Error paying!')</script>";
+			$this->showMyOrder();
+		}else{
+			echo "<script>alert('Success!')</script>";
+			$this->index();
+		}
+	}
 	public function registerValidations()
   {
     $this->form_validation->set_rules('first_name', 'First Name', 'trim|required', array(

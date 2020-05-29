@@ -5,9 +5,7 @@
        <div class="container"><!-- container Begin -->
            
            <div class="col-md-6 offer"><!-- col-md-6 offer Begin -->
-               
-               <a href="<?php echo site_url('Home/myAccount'); ?>" class="btn btn-success btn-sm">Welcome</a>
-               <a href="checkout.php">0 Items In Your Cart | Total Price: Rp23.597.000,- </a>
+
                
            </div><!-- col-md-6 offer Finish -->
            
@@ -17,12 +15,6 @@
                    
                    <li>
                        <a href="<?php echo site_url('Home/registerShow'); ?>">Register</a>
-                   </li>
-                   <li>
-                       <a href="<?php echo site_url('Home/myAccount'); ?>">My Account</a>
-                   </li>
-                   <li>
-                       <a href="<?php echo site_url('Home/showCart'); ?>">Go To Cart</a>
                    </li>
                    <li>
                        <a href="<?php echo site_url('Home/logout'); ?>">Logout</a>
@@ -93,7 +85,7 @@
                    
                    <i class="fa fa-shopping-cart"></i>
                    
-                   <span>3 Items In Your Cart</span>
+                   <span>Cart</span>
                    
                </a><!-- btn navbar-btn btn-primary Finish -->
                
@@ -107,11 +99,23 @@
                        
                    </button><!-- btn btn-primary navbar-btn Finish -->
                    
+			   </div><!-- navbar-collapse collapse right Finish -->
+			   
+			   <div class="navbar-collapse collapse right"><!-- navbar-collapse collapse right Begin -->
+                   
+                   <button class="btn btn-primary navbar-btn" type="button" data-toggle="collapse" data-target="#filter"><!-- btn btn-primary navbar-btn Begin -->
+                       
+                       <span class="sr-only">Toggle Filter</span>
+                       
+                       <i class="fa fa-filter"></i>
+                       
+                   </button><!-- btn btn-primary navbar-btn Finish -->
+                   
                </div><!-- navbar-collapse collapse right Finish -->
                
                <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->
                    
-                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->
+                   <form method="post" action="<?php echo base_url() . 'index.php/Home/search'?>" class="navbar-form"><!-- navbar-form Begin -->
                        
                        <div class="input-group"><!-- input-group Begin -->
                            
@@ -122,6 +126,30 @@
                            <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary Begin -->
                                
                                <i class="fa fa-search"></i>
+                               
+                           </button><!-- btn btn-primary Finish -->
+                           
+                           </span><!-- input-group-btn Finish -->
+                           
+                       </div><!-- input-group Finish -->
+                       
+                   </form><!-- navbar-form Finish -->
+                   
+			   </div><!-- collapse clearfix Finish -->
+			   
+			   <div class="collapse clearfix" id="filter"><!-- collapse clearfix Begin -->
+                   
+                   <form method="post" action="<?php echo base_url() . 'index.php/Home/filter'?>" class="navbar-form"><!-- navbar-form Begin -->
+                       
+                       <div class="input-group"><!-- input-group Begin -->
+                           
+                           <input type="number" class="form-control" placeholder="Min Harga" name="minHarga" required>
+                           <input type="number" class="form-control" placeholder="Max harga" name="maxHarga" required>
+                           <span class="input-group-btn"><!-- input-group-btn Begin -->
+                           
+                           <button type="submit" name="filter" value="filter" class="btn btn-primary"><!-- btn btn-primary Begin -->
+                               
+                               <i class="fa fa-filter"></i>
                                
                            </button><!-- btn btn-primary Finish -->
                            

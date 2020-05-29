@@ -25,10 +25,8 @@
             <tr><!--  tr Begin  -->
                 
                 <th> No: </th>
-                <th> Due Amount: </th>
-                <th> Invoice No: </th>
+                <th> Amount: </th>
                 <th> Qty: </th>
-                <th> Size: </th>
                 <th> Order Date:</th>
                 <th> Paid / Unpaid: </th>
                 <th> Status: </th>
@@ -38,64 +36,33 @@
         </thead><!--  thead Finish  -->
         
         <tbody><!--  tbody Begin  -->
-            
+            <?php $count = 1 ;if($data != NULL)foreach($data->result() as $loop): ?>
             <tr><!--  tr Begin  -->
                 
-                <th> #1 </th>
+                <th> #<?php echo $count; $count++;?> </th>
                 
-                <td> Rp299.000,- </td>
-                <td> 00013612 </td>
-                <td> 1 </td>
-                <td> Large </td>
-                <td> 25-05-2020 </td>
-                <td> Unpaid </td>
+                <td> Rp <?php echo number_format($loop->total)?>,- </td>
+                <td> <?php echo $loop->jumlah?> </td>
+                <td> <?php echo $loop->waktu?> </td>
+				<td> <?php 
+						if($loop->status == 0){
+							echo 'unpaid';
+						}else{
+							echo 'paid';
+						}
+				?> </td>
                 
                 <td>
-                    
-                    <a href="confirm.php" target="_blank" class="btn btn-primary btn-sm"> Confirm Paid </a>
-                    
+					<?php if($loop->status == 0){?>
+                    <a href="<?php echo base_url () . 'index.php/Home/confirmPay/' .$loop->id?>" class="btn btn-primary btn-sm"> Confirm Paid </a>
+					<?php } else {
+						echo 'oke';
+					}
+					?>
                 </td>
                 
             </tr><!--  tr Finish  -->
-            
-            <tr><!--  tr Begin  -->
-                
-                <th> #2 </th>
-                
-                <td> Rp1.299.000,- </td>
-                <td> 00013889 </td>
-                <td> 1 </td>
-                <td> Medium </td>
-                <td> 25-05-2020 </td>
-                <td> Unpaid </td>
-                
-                <td>
-                    
-                    <a href="confirm.php" target="_blank" class="btn btn-primary btn-sm"> Confirm Paid </a>
-                    
-                </td>
-                
-            </tr><!--  tr Finish  -->
-            
-            <tr><!--  tr Begin  -->
-                
-                <th> #3 </th>
-                
-                <td> Rp21.999.000,- </td>
-                <td> 00013666 </td>
-                <td> 1 </td>
-                <td> 6 </td>
-                <td> 25-05-2020 </td>
-                <td> Unpaid </td>
-                
-                <td>
-                    
-                    <a href="confirm.php" target="_blank" class="btn btn-primary btn-sm"> Confirm Paid </a>
-                    
-                </td>
-                
-            </tr><!--  tr Finish  -->
-            
+			<?php endforeach; ?>
         </tbody><!--  tbody Finish  -->
         
     </table><!--  table table-bordered table-hover Finish  -->

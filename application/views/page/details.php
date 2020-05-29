@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?>">
 </head>
 <body>
-   
+   <?php setlocale (LC_TIME, 'id_ID');?>
    <div id="top"><!-- Top Begin -->
        
        <div class="container"><!-- container Begin -->
@@ -253,7 +253,7 @@
                                    </div><!-- col-md-7 Finish -->
                                </div><!-- form-group Finish -->
                                
-                               <p class="price">Rp<?php echo $data['harga_barang']?>,-</p>
+                               <p class="price">Rp<?php echo number_format($data['harga_barang'])?>,-</p>
                                
                                <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart"> Add to cart</button></p>
                                

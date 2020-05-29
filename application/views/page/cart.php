@@ -11,7 +11,7 @@
 </head>
 <body>
    
-   <?php echo $header; ?>
+   <?php echo $header; setlocale (LC_TIME, 'id_ID');?>
    
    <div id="content"><!-- #content Begin -->
        <div class="container"><!-- container Begin -->
@@ -35,7 +35,7 @@
                    <form action="cart.php" method="post" enctype="multipart/form-data"><!-- form Begin -->
                        
                        <h1>Shopping Cart</h1>
-                       <p class="text-muted">You currently have 3 item(s) in your cart</p>
+                       <p class="text-muted">You currently have <?php if($count!=NULL)echo $count ?> item(s) in your cart</p>
                        
                        <div class="table-responsive"><!-- table-responsive Begin -->
                            
@@ -55,7 +55,10 @@
                                    </tr><!-- tr Finish -->
                                    
                                </thead><!-- thead Finish -->
-                               
+							   <?php
+							   if($data != NULL)
+							   	foreach($data->result() as $loop):
+							   ?>
                                <tbody><!-- tbody Begin -->
                                    
                                    <tr><!-- tr Begin -->
@@ -68,25 +71,25 @@
                                        
                                        <td>
                                            
-                                           <a href="phantomt.php">Phantom T</a>
+                                           <a href="phantomt.php"><?php echo $loop->nama_barang?></a>
                                            
                                        </td>
                                        
                                        <td>
                                           
-                                           1
+                                           <?php echo $loop->jumlah?>
                                            
                                        </td>
                                        
                                        <td>
                                            
-                                           Rp299.000,-
+                                           Rp<?php echo number_format($loop->harga_barang)?>,-
                                            
                                        </td>
                                        
                                        <td>
                                            
-                                           Large
+                                           <?php $loop->size ?>
                                            
                                        </td>
                                        
@@ -98,120 +101,21 @@
                                        
                                        <td>
                                            
-                                           Rp299.000,-
+                                           Rp<?php echo number_format($loop->total)?>,-
                                            
                                        </td>
                                        
                                    </tr><!-- tr Finish -->
                                    
                                </tbody><!-- tbody Finish -->
-                               
-                               <tbody><!-- tbody Begin -->
-                                   
-                                   <tr><!-- tr Begin -->
-                                       
-                                       <td>
-                                           
-                                           <img class="img-responsive" src="admin_area/product_images/Man-Geox-Winter-jacket-1.jpg" alt="Product 3a">
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           <a href="blackmatte.php">Black Matte</a>
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                          
-                                           1
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           Rp1.299.000,-
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           Medium
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           <input type="checkbox" name="remove[]">
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                            Rp1.299.000,-
-                                           
-                                       </td>
-                                       
-                                   </tr><!-- tr Finish -->
-                                   
-                               </tbody><!-- tbody Finish -->
-                               
-                               <tbody><!-- tbody Begin -->
-                                   
-                                   <tr><!-- tr Begin -->
-                                       
-                                       <td>
-                                           
-                                           <img class="img-responsive" src="admin_area/product_images/women-diamond-heart-ring-3.jpg" alt="Product 3a">
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           <a href="ringstone.php">Ringstone</a>
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                          
-                                           1
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           Rp21.999.000,-
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           6
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                           <input type="checkbox" name="remove[]">
-                                           
-                                       </td>
-                                       
-                                       <td>
-                                           
-                                            Rp21.999.000,-
-                                           
-                                       </td>
-                                       
-                                   </tr><!-- tr Finish -->
-                                   
-                               </tbody><!-- tbody Finish -->
+								   <?php endforeach;?>
                                
                                <tfoot><!-- tfoot Begin -->
                                    
                                    <tr><!-- tr Begin -->
                                        
                                        <th colspan="5">Total</th>
-                                       <th colspan="2">Rp23.597.000,-</th>
+                                       <th colspan="2">Rp <?php if($grandTotal!=NULL)echo number_format($grandTotal)?>,-</th>
                                        
                                    </tr><!-- tr Finish -->
                                    
@@ -241,7 +145,7 @@
                                    
                                </button><!-- btn btn-default Finish -->
                                
-                               <a href="../pemweb/customer/my_account.php?my_orders" class="btn btn-primary">
+                               <a href="<?php echo base_url() . 'index.php/Home/checkout' ?>" class="btn btn-primary">
                                    
                                    Proceed Checkout <i class="fa fa-chevron-right"></i>
                                    
@@ -314,65 +218,6 @@
                
            </div><!-- col-md-9 Finish -->
            
-           <div class="col-md-3"><!-- col-md-3 Begin -->
-               
-               <div id="order-summary" class="box"><!-- box Begin -->
-                   
-                   <div class="box-header"><!-- box-header Begin -->
-                       
-                       <h3>Order Summary</h3>
-                       
-                   </div><!-- box-header Finish -->
-                   
-                   <p class="text-muted"><!-- text-muted Begin -->
-                       
-                       Shipping and additional costs are calculated based on value you have entered
-                       
-                   </p><!-- text-muted Finish -->
-                   
-                   <div class="table-responsive"><!-- table-responsive Begin -->
-                       
-                       <table class="table"><!-- table Begin -->
-                           
-                           <tbody><!-- tbody Begin -->
-                               
-                               <tr><!-- tr Begin -->
-                                   
-                                   <td> Order Sub-Total </td>
-                                   <td> Rp23.597.000,- </td>
-                                   
-                               </tr><!-- tr Finish -->
-                               
-                               <tr><!-- tr Begin -->
-                                   
-                                   <td> Shipping and Handling </td>
-                                   <td> Free </td>
-                                   
-                               </tr><!-- tr Finish -->
-                               
-                               <tr><!-- tr Begin -->
-                                   
-                                   <td> Tax </td>
-                                   <td> Free </td>
-                                   
-                               </tr><!-- tr Finish -->
-                               
-                               <tr class="total"><!-- tr Begin -->
-                                   
-                                   <td> Total </td>
-                                   <th> Rp23.597.000,- </th>
-                                   
-                               </tr><!-- tr Finish -->
-                               
-                           </tbody><!-- tbody Finish -->
-                           
-                       </table><!-- table Finish -->
-                       
-                   </div><!-- table-responsive Finish -->
-                   
-               </div><!-- box Finish -->
-               
-           </div><!-- col-md-3 Finish -->
            
        </div><!-- container Finish -->
    </div><!-- #content Finish -->

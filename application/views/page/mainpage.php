@@ -166,6 +166,7 @@
        
        <div class="row"><!-- row Begin -->
 		   <?php
+		   setlocale (LC_TIME, 'id_ID');
 		   if($data != NULL)
 		   foreach($data->result() as $loop):
 		   ?>
@@ -187,13 +188,13 @@
                            </a>
                        </h3>
                        
-                       <p class="price">Rp<?php echo $loop->harga_barang?>,-</p>
+                       <p class="price">Rp<?php echo number_format($loop->harga_barang)?>,-</p>
                        
                        <p class="button">
                            
                            <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>" class="btn btn-default">View Details</a>
                            
-                           <a href="details.php" class="btn btn-primary">
+                           <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>" class="btn btn-primary">
                                
                                <i class="fa fa-shopping-cart">
                                    Add To Cart

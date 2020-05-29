@@ -35,21 +35,33 @@
            </div><!-- col-md-3 Finish -->
            
            <div class="col-md-9"><!-- col-md-9 Begin -->
-               
+               <?php foreach($data->result() as $loop):?>
                <div class="box"><!-- box Begin -->
-                   
-                   <?php
-                   
-                   if (isset($_GET['my_orders'])){
-                       include("my_orders.php");
-                   }
-                   
-                   ?>
-                   
+                   <form method="post" action="<?php echo base_url() . 'index.php/Home/updateProfile'?>"
+				   <div class="form-group">
+							<label>First Name</label>
+							<input name="firstName" type="text" class="form-control" value="<?php echo $loop->first_name?>" required>
+							<label>Last Name</label>
+							<input name="lastName" type="text" class="form-control" value="<?php echo $loop->last_name?>" required>
+							<label>Username</label>
+							<input name="username" type="text" class="form-control" value="<?php echo $loop->username?>" required>
+
+							<label>Email</label>
+							<input name="Email" type="email" class="form-control" value="<?php echo $loop->email?>" required>
+
+							<label>Birthdate</label>
+							<input name="birthDate" type="date" class="form-control" value="<?php echo $loop->birthdate?>" required>
+
+							<label>Profile Picture</label>
+							<input name="profile" type="file" accept="image/png,image/jpeg" class="form-control">
+							<br>
+							<button type="submit" class="btn btn-primary">Edit</button>
+					</div>
+
                </div><!-- box Finish -->
                
            </div><!-- col-md-9 Finish -->
-           
+           <?php endforeach;?>
        </div><!-- container Finish -->
    </div><!-- #content Finish -->
    
