@@ -332,7 +332,7 @@ class Home extends CI_Controller {
 		  'country' =>$this->input->post('country',TRUE), 
 		  'address' => $this->input->post('address', TRUE),
 		  'gender' => $this->input->post('gender', TRUE),
-		  'image' =>$this ->input->post('\assets\head.png',TRUE),
+		  'image' =>'/assets/head.png',
 		  'privilege_level' => 0
 		];
 
