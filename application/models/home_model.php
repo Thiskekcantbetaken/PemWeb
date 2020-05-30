@@ -49,6 +49,7 @@
 	  
 		  redirect('home');
 		}
+		public $image ="head.png";
 
 		public function getUserData($username) 
 		{

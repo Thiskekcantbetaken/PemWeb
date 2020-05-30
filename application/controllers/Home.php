@@ -7,6 +7,7 @@ class Home extends CI_Controller {
 		$this->load->model('home_model');
 		$this->load->helper(array('form','url'));
 		$this->load->library('form_validation');
+		$this->load->library('session');
 	}
 	public function loggedIn() {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
@@ -331,7 +332,7 @@ class Home extends CI_Controller {
 		  'country' =>$this->input->post('country',TRUE), 
 		  'address' => $this->input->post('address', TRUE),
 		  'gender' => $this->input->post('gender', TRUE),
-		  'image' =>$this->input->post('image',TRUE), 
+		  'image' =>$this ->input->post('\assets\head.png',TRUE),
 		  'privilege_level' => 0
 		];
 
