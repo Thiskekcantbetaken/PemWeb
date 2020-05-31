@@ -159,6 +159,16 @@
 			return FALSE;
 		}
 	  }
+	  public function getStokBarang($id){
+		  $query = "SELECT stok FROM barang WHERE id_barang = $id";
+		  $stmt = $this->db->query($query);
+		  $row = $stmt->row();
+		  if(isset($row)){
+			  return $row->stok;
+		  }else{
+			  return FALSE;
+		  }
+	  }
 	  public function getMyHistory($id){
 		  $query ="SELECT a.id_transaksi as id , a.waktu as waktu,SUM(c.harga_barang) as total , SUM(b.jumlah) as jumlah , a.status as status
 		  FROM transaksi a, transaksi_detail b, barang c

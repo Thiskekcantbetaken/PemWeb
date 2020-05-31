@@ -218,11 +218,10 @@
                    <div class="col-sm-6"><!-- col-sm-6 Begin -->
                        <div class="box"><!-- box Begin -->
                            <h1 class="text-center"><?php echo $data['nama_barang']?></h1>
-                           
+						   <p class="text-center">Stok : <?php echo $data['stok']?></p>
                            <form action="<?php echo base_url() .'index.php/Home/addToCart/'.$data['id_barang']?>" class="form-horizontal" method="post"><!-- form-horizontal Begin -->
                                <div class="form-group"><!-- form-group Begin -->
                                    <label for="" class="col-md-5 control-label">Products Quantity</label>
-                                   
                                    <div class="col-md-7"><!-- col-md-7 Begin -->
                                           <select name="jumlah" id="" class="form-control"><!-- select Begin -->
                                            <option>1</option>

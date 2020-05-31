@@ -123,13 +123,22 @@ class Home extends CI_Controller {
 	public function addToCart($id){
 		$size = $this->input->post('size');
 		$jumlah = $this->input->post('jumlah');
-		if(isset($_SESSION['user_id'])){
-			$this->home_model->addToCart($_SESSION['user_id'],$id,$jumlah,$size);
+		$data = $this->home_model->getStokBarang($id);
+		if($data === FALSE){
 			$this->index();
 		}else{
-			$this->showLogin();
+			if(isset($_SESSION['user_id'])){
+				if($data >= $jumlah){
+					$this->home_model->addToCart($_SESSION['user_id'],$id,$jumlah,$size);
+					$this->index();
+				}else{
+					echo "<script>alert('Jumlah pesanan melebih stok!')</script>";
+					$this->index();
+				}
+			}else{
+				$this->showLogin();
+			}
 		}
-		
 	}
 	public function logout()
 	{
