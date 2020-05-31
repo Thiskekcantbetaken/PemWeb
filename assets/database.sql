@@ -128,18 +128,23 @@ CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
+	`country` varchar(255) NOT NULL,
+	`city` varchar(255) NOT NULL,
+	`contact` varchar(255) NOT NULL,
+	`address` varchar(255) NOT NULL,
   `birthdate` date NOT NULL,
   `gender` varchar(2) NOT NULL,
-  `privilege_level` int(11) NOT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `image` varchar(255) DEFAULT NULL,
+	`privilege_level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `birthdate`, `gender`, `privilege_level`, `image`) VALUES
-(1, 'Rully', 'Saputra', 'saputra523', 'rully.saputra4@gmail.com', '$2y$10$y3e6GkIMkFXg3/Pk.hnzVuai9Supasyjv9lel/twyB9yRZagZUEnG', '2020-05-29', 'M', 2, 'wrong-cross-png-4.png');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`,`country`,`city`,	`contact`,`address`, `birthdate`, `gender`, `image`, `privilege_level`) VALUES
+(1, 'Admin', 'Admin', 'admin', 'admin@gmail.com', '$2y$10$y3e6GkIMkFXg3/Pk.hnzVuai9Supasyjv9lel/twyB9yRZagZUEnG','indonesia','jakarta','kemana','123', '2020-05-29', 'M','/assets/gambar/head.png',1),
+(2, 'Rully', 'Saputra', 'saputra523', 'rully.saputra4@gmail.com', '$2y$10$y3e6GkIMkFXg3/Pk.hnzVuai9Supasyjv9lel/twyB9yRZagZUEnG','jerman','baghdad','321','disana', '2020-05-29', 'M','/assets/gambar/head.png',2);
 
 --
 -- Indexes for dumped tables
