@@ -145,63 +145,6 @@
                    
                </div><!-- box Finish -->
                
-               <div id="row same-heigh-row"><!-- #row same-heigh-row Begin -->
-                   <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 Begin -->
-                       <div class="box same-height headline"><!-- box same-height headline Begin -->
-                           <h3 class="text-center">Products You Maybe Like</h3>
-                       </div><!-- box same-height headline Finish -->
-                   </div><!-- col-md-3 col-sm-6 Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Man-Polo-3.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Mr. Simple</a></h3>
-                                
-                                <p class="price">Rp999.000,-</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Product-5a.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Hot Grey</a></h3>
-                                
-                                <p class="price">Rp399.000,-</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-                   <div class="col-md-3 col-sm-6 center-responsive"><!-- col-md-3 col-sm-6 center-responsive Begin -->
-                       <div class="product same-height"><!-- product same-height Begin -->
-                           <a href="details.php">
-                               <img class="img-responsive" src="admin_area/product_images/Product-4a.jpg" alt="Product 6">
-                            </a>
-                            
-                            <div class="text"><!-- text Begin -->
-                                <h3><a href="details.php">Pink Gurl</a></h3>
-                                
-                                <p class="price">Rp799.000,-</p>
-                                
-                            </div><!-- text Finish -->
-                            
-                        </div><!-- product same-height Finish -->
-                   </div><!-- col-md-3 col-sm-6 center-responsive Finish -->
-                   
-               </div><!-- #row same-heigh-row Finish -->
-               
            </div><!-- col-md-9 Finish -->
            
            

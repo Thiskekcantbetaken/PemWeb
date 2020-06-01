@@ -86,7 +86,7 @@ class Home extends CI_Controller {
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		
+		$data['data'] = $this->home_model->getAllBarang();
 		$this->load->view('page/shop.php',$data);
 	}
 	public function showCart()

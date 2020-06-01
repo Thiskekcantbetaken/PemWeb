@@ -43,37 +43,30 @@
                </div><!-- box Finish -->
                
                <div class="row"><!-- row Begin -->
+			   <?php foreach($data->result() as $loop):?>
                    <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsive Begin -->
                        
-                       <div class="product"><!-- product Begin -->
+				   <div class="product"><!-- product Begin -->
                    
-                   <a href="details.php">
+                   <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>">
                        
-                       <img class="img-responsive" src="admin_area/product_images/product-1.jpg" alt="Product 1">
+                       <img class="img-responsive" src="admin_area/product_images/Product-3a.jpg" alt="Product 1">
                        
                    </a>
                    
                    <div class="text"><!-- text Begin -->
                        
                        <h3>
-                           <a href="details.php">
-                               Cloudy
+                           <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>">
+                               <?php echo $loop->nama_barang?>
                            </a>
                        </h3>
                        
-                       <p class="price">Rp399.000,-</p>
+                       <p class="price">Rp<?php echo number_format($loop->harga_barang)?>,-</p>
                        
                        <p class="button">
                            
-                           <a href="details.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
+                           <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>" class="btn btn-default">View Details</a>
                            
                        </p>
                        
@@ -82,201 +75,7 @@
                </div><!-- product Finish -->
                        
                    </div><!-- col-md-4 col-sm-6 center-responsive Finish -->
-                   <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsive Begin -->
-                       
-                       <div class="product"><!-- product Begin -->
-                   
-                   <a href="details.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/product-2.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="details.php">
-                               Shrek Grey
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp899.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="details.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-                       
-                   </div><!-- col-md-4 col-sm-6 center-responsive Finish -->
-                   <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsive Begin -->
-                       
-                       <div class="product"><!-- product Begin -->
-                   
-                   <a href="details.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Product-3b.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="details.php">
-                               Phantom T
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp299.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="phantomt.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-                       
-                   </div><!-- col-md-4 col-sm-6 center-responsive Finish -->
-                   <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsive Begin -->
-                       
-                       <div class="product"><!-- product Begin -->
-                   
-                   <a href="details.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Product-4a.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="details.php">
-                               Pink Gurl
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp799.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="details.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-                       
-                   </div><!-- col-md-4 col-sm-6 center-responsive Finish -->
-                   <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsive Begin -->
-                       
-                       <div class="product"><!-- product Begin -->
-                   
-                   <a href="details.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Product-5a.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="details.php">
-                               Hot Grey
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp399.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="details.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-                       
-                   </div><!-- col-md-4 col-sm-6 center-responsive Finish -->
-                   <div class="col-md-4 col-sm-6 center-responsive"><!-- col-md-4 col-sm-6 center-responsive Begin -->
-                       
-                       <div class="product"><!-- product Begin -->
-                   
-                   <a href="details.php">
-                       
-                       <img class="img-responsive" src="admin_area/product_images/Man-Polo-3.jpg" alt="Product 1">
-                       
-                   </a>
-                   
-                   <div class="text"><!-- text Begin -->
-                       
-                       <h3>
-                           <a href="details.php">
-                               Mr. Simple
-                           </a>
-                       </h3>
-                       
-                       <p class="price">Rp999.000,-</p>
-                       
-                       <p class="button">
-                           
-                           <a href="details.php" class="btn btn-default">View Details</a>
-                           
-                           <a href="details.php" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
-                       </p>
-                       
-                   </div><!-- text Finish -->
-                   
-               </div><!-- product Finish -->
-                       
-                   </div><!-- col-md-4 col-sm-6 center-responsive Finish -->
+			   <?php endforeach;?>
                </div><!-- row Finish -->
                
                <center>
