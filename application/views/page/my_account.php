@@ -37,7 +37,7 @@
            <div class="col-md-9"><!-- col-md-9 Begin -->
                <?php foreach($data->result() as $loop):?>
                <div class="box"><!-- box Begin -->
-                   <form method="post" action="<?php echo base_url() . 'index.php/Home/updateProfile'?>"
+                   <form method="post" enctype="multipart/form-data" action="<?php echo base_url() . 'index.php/Home/updateProfile'?>"
 				   <div class="form-group">
 							<label>First Name</label>
 							<input name="firstName" type="text" class="form-control" value="<?php echo $loop->first_name?>" required>

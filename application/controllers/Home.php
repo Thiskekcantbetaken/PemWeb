@@ -67,11 +67,12 @@ class Home extends CI_Controller {
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
 		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
-		$data['sidebar'] = $this->load->view('template/account.php', NULL, TRUE);
+
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 		if(isset($_SESSION['user_id'])){
 			$id = $_SESSION['user_id'];
 			$data['data'] = $this->home_model->getUserId($id);
+			$data['sidebar'] = $this->load->view('template/account.php', $data,TRUE);
 			$this->load->view('page/my_account.php',$data);
 		}else{
 			$this->showLogin();
@@ -118,9 +119,6 @@ class Home extends CI_Controller {
 	public function showDetails($id){
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
-		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
-		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
-		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 		$data['data'] = $this->home_model->getBarang($id);
 		$this->load->view('page/details.php',$data);
 	}
@@ -238,8 +236,19 @@ class Home extends CI_Controller {
 			'username' => $this->input->post('username',TRUE),
 			'email' => $this->input->post('Email',TRUE),
 			'birthDate' => $this->input->post('birthDate',TRUE),
-			'profile' => $this->input->post('profile',TRUE)
 		];
+		$config['upload_path'] = './assets/gambar';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_size'] = 100;
+		$config['max_width'] = 1024;
+		$config['max_height'] = 768;
+
+		$this->load->library('upload',$config);
+		if($this->upload->do_upload('profile')){
+			$data['profile'] = $this->upload->data("file_name");
+		}else{
+			$data['profile'] = "logo.jpg";
+		}
 		$result = $this->home_model->updateMyProfile($data);
 		if($result === FALSE){
 			echo "<script>alert('Error updating!')</script>";
