@@ -19,7 +19,7 @@
                
                <ul class="breadcrumb"><!-- breadcrumb Begin -->
                    <li>
-                       <a href="<?php echo site_url('Home/index'); ?>">Home</a>
+                       <a href="<?php echo site_url('LogHome/index'); ?>">Home</a>
                    </li>
                    <li>
                        Cart
@@ -131,7 +131,7 @@
                            
                            <div class="pull-right"><!-- pull-right Begin -->
                                
-                               <a href="<?php echo base_url() . 'index.php/Home/checkout' ?>" class="btn btn-primary">
+                               <a href="<?php echo base_url() . 'index.php/LogHome/checkout' ?>" class="btn btn-primary">
                                    
                                    Proceed Checkout <i class="fa fa-chevron-right"></i>
                                    
