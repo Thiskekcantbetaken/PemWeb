@@ -119,6 +119,9 @@ class Home extends CI_Controller {
 	public function showDetails($id){
 		$data['style'] = $this->load->view('include/css.php', NULL, TRUE);
 		$data['script'] = $this->load->view('include/javascript.php', NULL, TRUE);
+		$data['header'] = $this->load->view('template/navbar.php', NULL, TRUE);
+		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
+		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
 		$data['data'] = $this->home_model->getBarang($id);
 		$this->load->view('page/details.php',$data);
 	}
