@@ -127,23 +127,9 @@
                        
                        <div class="box-footer"><!-- box-footer Begin -->
                            
-                           <div class="pull-left"><!-- pull-left Begin -->
-                               
-                               <a href="shop.php" class="btn btn-default"><!-- btn btn-default Begin -->
-                                   
-                                   <i class="fa fa-chevron-left"></i> Continue Shopping
-                                   
-                               </a><!-- btn btn-default Finish -->
-                               
-                           </div><!-- pull-left Finish -->
+
                            
                            <div class="pull-right"><!-- pull-right Begin -->
-                               
-                               <button type="submit" name="update" value="Update Cart" class="btn btn-default"><!-- btn btn-default Begin -->
-                                   
-                                   <i class="fa fa-refresh"></i> Update Cart
-                                   
-                               </button><!-- btn btn-default Finish -->
                                
                                <a href="<?php echo base_url() . 'index.php/Home/checkout' ?>" class="btn btn-primary">
                                    
