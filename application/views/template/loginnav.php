@@ -14,10 +14,7 @@
                <ul class="menu"><!-- cmenu Begin -->
                    
                    <li>
-                       <a href="<?php echo site_url('Home/registerShow'); ?>">Register</a>
-                   </li>
-                   <li>
-                       <a href="<?php echo site_url('Home/logout'); ?>">Logout</a>
+                       <a href="<?php echo site_url('LogHome/logout'); ?>">Logout</a>
                    </li>
                    
                </ul><!-- menu Finish -->
@@ -34,7 +31,7 @@
            
            <div class="navbar-header"><!-- navbar-header Begin -->
                
-               <a href="<?php echo site_url('Home/index'); ?>" class="navbar-brand home"><!-- navbar-brand home Begin -->
+               <a href="<?php echo site_url('LogHome/index'); ?>" class="navbar-brand home"><!-- navbar-brand home Begin -->
                    
                    <img src="<?php echo base_url('/assets/gambar/Logotes.jpg'); ?>" alt="FaShop Logo" style="width:150px;" class="hidden-xs">
                    
@@ -65,23 +62,23 @@
                    <ul class="nav navbar-nav left"><!-- nav navbar-nav left Begin -->
                        
                        <li class="active">
-                           <a href="<?php echo site_url('Home/index'); ?>">Home</a>
+                           <a href="<?php echo site_url('LogHome/index'); ?>">Home</a>
                        </li>
                        <li>
-                           <a href="<?php echo site_url('Home/showShop'); ?>">Shop</a>
+                           <a href="<?php echo site_url('LogHome/showShop'); ?>">Shop</a>
                        </li>
                        <li>
-                           <a href="<?php echo site_url('Home/myAccount'); ?>">My Account</a>
+                           <a href="<?php echo site_url('LogHome/myAccount'); ?>">My Account</a>
                        </li>
                        <li>
-                           <a href="<?php echo site_url('Home/showCart'); ?>">Shopping Cart</a>
+                           <a href="<?php echo site_url('LogHome/showCart'); ?>">Shopping Cart</a>
                        </li>
                        
                    </ul><!-- nav navbar-nav left Finish -->
                    
                </div><!-- padding-nav Finish -->
                
-               <a href="<?php echo site_url('Home/showCart'); ?>" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
+               <a href="<?php echo site_url('LogHome/showCart'); ?>" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->
                    
                    <i class="fa fa-shopping-cart"></i>
                    
@@ -115,7 +112,7 @@
                
                <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->
                    
-                   <form method="post" action="<?php echo base_url() . 'index.php/Home/search'?>" class="navbar-form"><!-- navbar-form Begin -->
+                   <form method="post" action="<?php echo base_url() . 'index.php/LogHome/search'?>" class="navbar-form"><!-- navbar-form Begin -->
                        
                        <div class="input-group"><!-- input-group Begin -->
                            
@@ -139,7 +136,7 @@
 			   
 			   <div class="collapse clearfix" id="filter"><!-- collapse clearfix Begin -->
                    
-                   <form method="post" action="<?php echo base_url() . 'index.php/Home/filter'?>" class="navbar-form"><!-- navbar-form Begin -->
+                   <form method="post" action="<?php echo base_url() . 'index.php/LogHome/filter'?>" class="navbar-form"><!-- navbar-form Begin -->
                        
                        <div class="input-group"><!-- input-group Begin -->
                            
