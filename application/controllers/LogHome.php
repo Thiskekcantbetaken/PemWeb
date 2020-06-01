@@ -67,8 +67,8 @@ class LogHome extends CI_Controller {
 		$data['header'] = $this->load->view('template/loginnav.php', NULL, TRUE);
 		$data['sidebar'] = $this->load->view('include/sidebar.php', NULL, TRUE);
 		$data['footer'] = $this->load->view('include/footer.php', NULL, TRUE);
-		
-		$this->load->view('page/shop.php',$data);
+		$data['data'] = $this->home_model->getAllBarang();
+		$this->load->view('page/ShopLog.php',$data);
 	}
 	public function showCart()
 	{
@@ -145,7 +145,7 @@ class LogHome extends CI_Controller {
 			}else{
 				$data['data'] = $tmp;
 			}
-			$this->load->view('page/mainpage',$data);
+			$this->load->view('page/loginpage',$data);
 
 		}else{
 			$this->index();
