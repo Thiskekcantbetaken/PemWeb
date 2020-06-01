@@ -47,6 +47,7 @@
                        </center><!-- center Finish -->
                        
                        <form id="" action="<?= site_url() . "/home/login"; ?>" method="POST">
+							<?php validation_errors(); echo $this->session->flashdata('message'); ?>
 							<div class="form-group">
 								<label>Username</label>
 								<input id="inputField" name="login_username" type="text" class="form-control" placeholder="Username" maxlength="" required>

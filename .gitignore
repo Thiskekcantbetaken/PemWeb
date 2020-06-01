@@ -41,3 +41,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .vs/slnx.sqlite
 .vs/PemWeb/v16/.suo
 .vs/VSWorkspaceState.json
+application/config/config.php

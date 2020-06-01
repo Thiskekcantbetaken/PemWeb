@@ -21,7 +21,6 @@ class Admin extends CI_Controller {
 
     $crud->set_table('barang');
     $crud->set_subject('Barang');
-    $crud->set_theme('datatables');
     $crud->fields('nama_barang', 'harga_barang', 'stok', 'jumlah_terjual', 'foto', 'deskripsi');
     $crud->set_field_upload('foto','assets/uploads/files');
     $crud->display_as('id_barang', 'ID');
@@ -30,14 +29,19 @@ class Admin extends CI_Controller {
     $crud->display_as('jumlah_terjual', 'Terjual');
     $crud->set_primary_key('id_barang');
     $output = $crud->render(); 
-    $this->load->view('admin', $output);
+    $this->load->view('page/admin', $output);
   }
 
   public function users() {
     $crud = new grocery_CRUD();
-    $crud->set_table('users');
+    $crud->set_table('users')
+		->columns('first_name', 'last_name', 'username', 'country', 'city', 'contact', 'address', 'birthdate', 'gender');
+    $crud->fields('first_name', 'last_name', 'country', 'city', 'contact', 'address', 'birthdate', 'gender');
+    $crud->display_as('first_name', 'First Name');
+    $crud->display_as('last_name', 'Last Name');
+	//$crud->set_theme('datatables');
     $output = $crud->render(); 
-    $this->load->view('admin', $output);
+    $this->load->view('page/admin', $output);
   }
 
 }
