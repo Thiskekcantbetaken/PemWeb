@@ -194,14 +194,6 @@
                            
                            <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>" class="btn btn-default">View Details</a>
                            
-                           <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>" class="btn btn-primary">
-                               
-                               <i class="fa fa-shopping-cart">
-                                   Add To Cart
-                               </i>
-                               
-                           </a>
-                           
                        </p>
                        
                    </div><!-- text Finish -->
