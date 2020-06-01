@@ -1,11 +1,12 @@
+<?php foreach($data->result() as $loop):?>
 <div class="panel panel-default sidebar-menu"><!--  panel panel-default sidebar-menu Begin  -->
     
     <div class="panel-heading"><!--  panel-heading  Begin  -->
         
         <center><!--  center  Begin  -->
-            
-            <img src="customer_images/chrisevans.jpg" alt="Customer Profile">
-            
+  
+            <img style="width:64px;height:64px;"src="<?php echo base_url() . 'assets/gambar/' . $loop->image?>" alt="Customer Profile">
+            <p>Name : <?php echo $loop->first_name . ' ' . $loop->last_name?></p>
         </center><!--  center  Finish  -->
         
         <br/>
@@ -42,3 +43,4 @@
     </div><!--  panel-body Finish  -->
     
 </div><!--  panel panel-default sidebar-menu Finish  -->
+<?php endforeach;?>
