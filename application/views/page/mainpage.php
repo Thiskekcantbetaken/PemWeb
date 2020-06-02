@@ -176,7 +176,7 @@
                    
                    <a href="<?php echo base_url() . 'index.php/Home/showDetails/' . $loop->id_barang?>">
                        
-                       <img class="img-responsive" src="admin_area/product_images/Product-3a.jpg" alt="Product 1">
+                       <img class="img-responsive" src="<?php echo base_url('assets/gambar/' . $loop->foto);?>" alt="Product 1">
                        
                    </a>
                    

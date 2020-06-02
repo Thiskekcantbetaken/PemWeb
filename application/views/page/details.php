@@ -41,6 +41,7 @@
                    
                    <div class="col-sm-6"><!-- col-sm-6 Begin -->
                        <div class="box"><!-- box Begin -->
+					   <img class="img-responsive" src="<?php echo base_url('assets/gambar/' . $data['foto']);?>">
                            <h1 class="text-center"><?php echo $data['nama_barang']?></h1>
 						   <p class="text-center">Stok : <?php echo $data['stok']?></p>
                            <form action="<?php echo base_url() .'index.php/LogHome/addToCart/'.$data['id_barang']?>" class="form-horizontal" method="post"><!-- form-horizontal Begin -->
